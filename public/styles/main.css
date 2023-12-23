@@ -1,0 +1,31 @@
+/* Ensures the HTML element takes the full height of the viewport */
+html {
+    height: 100%;
+}
+  
+/* Styles the body element to use flex layout for vertical alignment and sets its minimum height to fill the viewport */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    margin: 0; /* Removes default margin */
+}
+
+/* Ensures that the main content stretches to fill the available space, allowing the footer to stick to the bottom */
+main {
+    flex: 1;
+}
+    
+/* Custom styling for the 'publish' button */
+#publish-btn {
+    background-color: #007bff; /* Sets the default background color */
+    border: none; /* Removes the default border */
+    padding: 10px 20px; /* Adds padding for better visual appeal */
+    font-size: 1em; /* Sets the font size */
+    border-radius: 5px; /* Rounds the corners of the button */
+}
+  
+/* Changes the background color of the 'publish' button on hover for visual feedback */
+#publish-btn:hover {
+    background-color: #0056b3; /* Darker shade to indicate hover state */
+}

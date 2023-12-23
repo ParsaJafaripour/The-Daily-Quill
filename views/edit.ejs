@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Head section can include meta tags, title, links to stylesheets, etc. (currently empty) -->
+</head>
+<body>
+  <!-- Include the shared header partial for consistent navigation across pages -->
+  <%- include("partials/header.ejs") %>
+
+  <!-- Main content area for editing an existing blog post -->
+  <main class="container mt-4 mb-3">
+    <!-- Form to handle the updating of an existing blog post -->
+    <form action="/update" method="POST">
+        <!-- Hidden input to store and send the ID of the post being edited -->
+        <input type="hidden" name="editId" value="<%= editPost.postId %>">
+
+        <!-- Input field for editing the blog post title -->
+        <div class="form-group mb-3">
+          <label for="inputTitle">Title</label>
+          <input type="text" class="form-control" id="inputTitle" name="editTitle" placeholder="Enter the Title of your blog post here" value="<%= editPost.postTitle %>" required>
+        </div>
+
+        <!-- Textarea for editing the blog post content -->
+        <div class="form-group mb-3">
+           <label for="postText">Post</label>
+           <textarea class="form-control" id="postText" name="editContent" rows="10" placeholder="Write your blog content here..." required><%= editPost.postContent %></textarea>
+        </div>
+
+        <!-- Submit button for saving the updated blog post -->
+        <button type="submit" id="publish-btn" class="btn btn-primary">Update Post</button>
+    </form>
+  </main>
+
+  <!-- Include the shared footer partial for a consistent page footer -->
+  <%- include("partials/footer.ejs") %>
+</body>
+</html>

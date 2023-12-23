@@ -1,0 +1,71 @@
+<body>
+  <main class="container">
+      <!-- Include the header partial for consistent navigation -->
+      <%- include("partials/header.ejs") %>
+  
+      <!-- Hero section showcasing the main purpose of the website -->
+      <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5 mt-4 mb-4">
+          <!-- Icon for aesthetic appeal -->
+          <svg class="bi mt-5 mb-3" width="48" height="48"><use xlink:href="#check2-circle"></use></svg>
+          <!-- Site title and introduction -->
+          <h1 class="text-body-emphasis mb-2">The Daily Quill</h1>
+          <p class="col-lg-6 mx-auto mb-4">
+            In this website you can start writing your own blogs! Start by writing your blog by clicking on the button!
+          </p>
+          <!-- Button to navigate to the compose page -->
+          <a class="btn btn-primary px-5 mb-5" href="/start">Compose your own Blog!</a>
+      </div>  
+  
+      <!-- Blog posts display section -->
+      <div class="row g-5">
+          <div class="col-md-8">
+              <!-- Section header -->
+              <h2 class="pb-4 mb-4 fst-italic border-bottom">
+                  Your Blogs
+              </h2>
+  
+              <!-- Loop through each post and display -->
+              <% posts.forEach(function(post) { %>
+                  <article class="blog-post">
+                      <!-- Display the title and content of each post -->
+                      <h2 class="blog-post-title"><%= post.postTitle %></h2>
+                      <p class="blog-post-content"><%= post.postContent %></p>
+                      <!-- Edit button linked to the edit page for each post -->
+                      <a class="btn btn-light rounded-pill px-3" href="/edit/<%= post.postId %>">Edit</a>
+                      <!-- Delete button to remove the post -->
+                      <form action="/delete/<%= post.postId %>" method="POST">
+                          <button type="submit" class="btn btn-danger mt-2">Delete</button>
+                      </form>
+                  </article>
+              <% }) %>
+          </div>
+  
+          <!-- Sidebar section for additional information -->
+          <div class="col-md-4">
+              <div class="position-sticky" style="top: 2rem;">
+                  <!-- About section -->
+                  <div class="p-4 mb-3 bg-body-tertiary rounded">
+                      <h4 class="fst-italic">About</h4>
+                      <p class="mb-0">
+                          Welcome to a space where creativity knows no bounds – "Write Away." Here, you're free to express, explore, and share your thoughts without constraints.
+                      </p>
+                  </div>
+  
+                  <!-- Contact section with external links -->
+                  <div class="p-4">
+                      <h4 class="fst-italic">Contact</h4>
+                      <ol class="list-unstyled">
+                          <li><a href="https://github.com/ParsaJafaripour">GitHub</a></li>
+                          <li><a href="https://www.linkedin.com/in/parsa-jafaripour-b34283252/">Linkedin</a></li>
+                          <li><a href="https://www.instagram.com/_parsajp_/">Instagram</a></li>
+                      </ol>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <!-- Include the footer partial -->
+      <%- include("partials/footer.ejs") %>
+  </main>
+  </body>
+  

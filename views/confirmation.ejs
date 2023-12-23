@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Head section can include meta tags, title, links to stylesheets, etc. (currently empty) -->
+</head>
+<body>
+  <!-- Include the shared header partial for consistent navigation across pages -->
+  <%- include("partials/header.ejs") %>
+
+  <!-- Main content area for the confirmation message -->
+  <main class="container mt-4 mb-3">
+    <!-- Confirmation message indicating successful submission -->
+    <h2>Your post has been successfully submitted!</h2>
+
+    <!-- Button to navigate back to the home page -->
+    <a href="/" class="btn btn-primary mt-4">Return Home</a>
+  </main>
+
+  <!-- Include the shared footer partial for a consistent page footer -->
+  <%- include("partials/footer.ejs") %>
+</body>
+</html>

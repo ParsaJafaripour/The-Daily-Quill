@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Head section can include meta tags, title, links to stylesheets, etc. (currently empty) -->
+</head>
+<body>
+  <!-- Include the shared header partial for consistent navigation across pages -->
+  <%- include("partials/header.ejs") %>
+
+  <!-- Main content area for composing a new blog post -->
+  <main class="container mt-4 mb-3">
+    <!-- Form to handle the creation of a new blog post -->
+    <form action="/compose" method="POST">
+      <!-- Input field for the blog post title -->
+      <div class="form-group mb-3">
+        <label for="inputTitle">Title</label>
+        <input type="text" class="form-control" id="inputTitle" name="title" placeholder="Enter the title of your blog post here" required>
+      </div>
+      <!-- Textarea for the blog post content -->
+      <div class="form-group mb-3">
+         <label for="postText">Post</label>
+         <textarea class="form-control" id="postText" name="content" rows="10" placeholder="Write your blog content here..." required></textarea>
+      </div>
+      <!-- Submit button for publishing the blog post -->
+      <button type="submit" id="publish-btn" class="btn btn-primary">Publish Post</button>
+    </form>
+  </main>
+
+  <!-- Include the shared footer partial for a consistent page footer -->
+  <%- include("partials/footer.ejs") %>
+</body>
+</html>
